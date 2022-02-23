@@ -1,0 +1,57 @@
+﻿https://blog.csdn.net/sxzlc/article/details/111304726
+
+■目录结构
+
+
+
+
+■bat
+set password=yourPassword
+"C:\Program Files (x86)\teraterm-4.98\ttpmacro.exe" "%~dp0ttl\autoLogin.ttl" %password%
+■ttl
+自动登陆后，执行一条ls -l 命令
+
+password = param2
+ 
+command = '192.168.131.128:22 /ssh /2  /auth=password /user=sxz001 /passwd='
+ 
+strconcat command password
+ 
+connect command 
+ 
+if result <> 2 then
+    messagebox 'Can not connected'
+    end
+endif
+ 
+timeout = 10
+wait '>' '$' '#'
+if result = 0 then
+    end
+endif
+ 
+command = "ls -l"
+sendln command
+ 
+
+■效果
+
+
+ 
+
+■注意点
+●平时执行 TeraTerm时，使用的执行文件
+
+    "C:\Program Files (x86)\teraterm-4.98\ttermpro.exe"
+
+●执行ttl时，使用的执行文件
+
+    "C:\Program Files (x86)\teraterm-4.98\ttpmacro.exe" 
+
+ 
+
+■参照
+https://lightwill.hatenablog.com/entry/2014/12/15/215848
+————————————————
+版权声明：本文为CSDN博主「sun0322」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/sxzlc/article/details/111304726
