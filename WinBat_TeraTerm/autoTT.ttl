@@ -28,8 +28,17 @@ connect Cmd
 
 pause  1
 
-;wait(等待匹配的字符串出现)
-wait '$'
+if result <> 2 then
+    messagebox 'Can not connected'
+    end
+endif
+
+;wait(等待匹配的字符串出现) 
+timeout = 10
+wait '>' '$' '#'
+if result = 0 then
+    end
+endif
 
 ;sendln 发送输入的字符
 sendln 'cd Hejl/'
