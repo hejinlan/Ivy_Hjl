@@ -1,0 +1,35 @@
+;#######################################################
+;tera term 连接脚本
+;设置 主机名 Host
+;     用户名 User
+;     密码   Password
+;#######################################################
+
+Host = '192.168.0.106'
+User1 = 'hjl_ivy'
+Password1 = 'hjlivy226'
+Ini = 'TERATERM.INI'
+
+;#######################################################
+;通过strconcat 拼接命令字符串
+;例如：connect '192.168.0.106 /ssh /auth=password /user=username /passwd= passwd'
+;#######################################################
+Cmd = ''
+strconcat Cmd Host
+strconcat Cmd ' /ssh /2 /auth=password'
+strconcat Cmd ' /user='
+strconcat Cmd User1
+strconcat Cmd ' /passwd='
+strconcat Cmd Password1
+strconcat Cmd ' /f='
+strconcat Cmd Ini
+
+connect Cmd
+
+pause  1
+
+;wait(等待匹配的字符串出现)
+wait '$'
+
+;sendln 发送输入的字符
+sendln 'cd Hejl/'

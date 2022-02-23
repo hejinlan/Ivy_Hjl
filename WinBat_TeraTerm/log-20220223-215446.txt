@@ -1,0 +1,5 @@
+Log start
+cd Hejl/
+[hjl_ivy@192 Hejl]$ ls -l
+×ÜÓÃÁ¿ 0
+[hjl_ivy@192 Hejl]$ 
