@@ -27,18 +27,13 @@ strconcat Cmd Ini
 connect Cmd
 
 pause  1
-
-if result <> 2 then
-    messagebox 'Can not connected'
-    end
-endif
+callmenu 50815
 
 ;wait(等待匹配的字符串出现) 
-timeout = 10
-wait '>' '$' '#'
+timeout = 2
+wait '<y/n>' 'y/n>' 
 if result = 0 then
-    end
+    sendln 'cd 123456/'	
+else 
+	sendln 'cd Hejl/'	
 endif
-
-;sendln 发送输入的字符
-sendln 'cd Hejl/'
