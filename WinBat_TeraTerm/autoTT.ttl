@@ -7,6 +7,7 @@
 
 Host = '192.168.0.106'
 User1 = 'hjl_ivy'
+;Password1 = param1
 Password1 = 'hjlivy226'
 Ini = 'TERATERM.INI'
 
@@ -27,14 +28,24 @@ strconcat Cmd Ini
 connect Cmd
 
 pause  1
+
 callmenu 50815
 
 ;wait(等待匹配的字符串出现) 
 timeout = 2
-wait '<y/n>' 'y/n>' 
-if result = 0 then
-    wait '$'
-	sendln 'cd 123456/'
-else 
-	sendln 'cd Hejl/'	
-endif
+;wait '<y/n>' 'y/n>' 
+wait '$'
+;if result = 0 then
+;    wait '$'
+;	sendln 'cd ../'
+;else 
+;	sendln 'cd Hejl/'	
+;endif
+sendln 'cd Hejl/'
+wait '$'	
+sendfile 'H:\WinBat_TeraTerm\widget.h' 0
+zmodemsend  'H:\WinBat_TeraTerm\log-20220226.txt' 0
+
+
+zmodemsend  'H:\WinBat_TeraTerm\widget.cpp' 0
+zmodemsend  'H:\WinBat_TeraTerm\TeraTerm 自动连接启动多个窗口.doc' 0
